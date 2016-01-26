@@ -20,7 +20,7 @@ This is a web server implementing:
 ### Build prerequisites
 
 * docker
-* make
+* GNU make
 
 The user should have sufficient rights to run `docker' without priviledge escalation, see
 "[Giving non-root access](https://docs.docker.com/engine/installation/binaries/#giving-non-root-access)"
@@ -47,17 +47,23 @@ The build takes a good cofee break. It is optimized for the USA East Coast, you 
 
 A successful test must be silent.
 
-### Deployment
-
-skipped for simplicity. Any variation of Ansible / Vagrant / Kubernetes can be used. The tests are
-run at your localhost.
-
 ### To run
 
-    docker run -d --restart=always -p 5000:<your favorite port number> emc2/fiboserver
+    make serve
 
-The server is up at <your favorite port number>. Challenge it with a test, where it is run at port 5000.
+Starts the service at port 5000. If you run Docker at your localhost, simply open http://localhost:5000 and start entering the numbers.
+
+To have web service available at port 5005, run:
+
+    docker run -d --restart=always -p 5000:5005 emc2/fiboserver
+
+Change 5005 to the desired, if necessary.
+
+### Hosted Deployment
+
+Skipped as provisioning/hosting is not defined. Any variation of Ansible / Vagrant / Kubernetes can be used as Docker images
+are rather easy to handle.
 
 ## Known bugs
 
-leading slashes `/' are ignored, thus "/2" is a legitimate input and produces 2 Fibonacci numbers. That is a feature of REST sitting behind.
+leading slashes `/' are ignored, thus "/2" is a legitimate input and produces 2 Fibonacci numbers. This is a _feature_ of REST sitting behind.

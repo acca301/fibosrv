@@ -6,9 +6,9 @@ function getResults(src,tgt) {
     // compatible with IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function(){
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+	if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 	    document.getElementById(tgt).innerHTML = xmlhttp.responseText;
-        }
+	}
     }
     xmlhttp.open('GET', 'compute/'+document.getElementById(src).value, true);
     xmlhttp.send();
@@ -22,7 +22,7 @@ function getResults(src,tgt) {
 <hr>
 <noscript>
     <h2>Please enable JavaScript</h2>
-You do not have JavaScript enabled. This page uses JavaScript to update the results on the fly. While there is no specific reason for that
+You do not have JavaScript enabled. This page uses JavaScript to update the results on the fly. While there is no specific reason for that,
 it is fun.
 <p>
 Please consider turning JavaScript on.
@@ -33,7 +33,7 @@ Please consider turning JavaScript on.
     <td><input id=uinput type=text placeholder="Enter a positive number" onkeyup="getResults('uinput','results')"></td>
   </tr>
   <tr>
-    <td>Results + Formal 0</td>
+    <td>Results</td>
     <td id='results'></td>
   </tr>
 </table>
