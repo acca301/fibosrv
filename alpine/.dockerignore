@@ -1,0 +1,5 @@
+*.md
+.git/
+Makefile
+*.apk
+*.txt
