@@ -23,5 +23,5 @@ method handle {
     return (print "\n")	if $x eq '/';
     return (print "Please enter digits only\n") if $x =~ /\D/;
     return (print "You have reached computational infinity. Do not request above 1500 numbers\n") if $x> 1500;
-    print join(', ', fib($x ? $x-1 : 0)), "\n";
+    print join(' ', fib($x ? $x-1 : 0)), "\n";
 }
