@@ -13,7 +13,8 @@ $(NS)/%: %/Dockerfile %/Makefile
 
 test: $(NS)/$(INAME)
 	@docker rm -f $(INAME) >/dev/null 2>&1 || true
-	@docker run -d --name=$(INAME) -v $(abspath $(INAME)/www):/srv/fibosrv -p 5000:5000 $< >/dev/null
+	@# docker run -d --name=$(INAME) -v $(abspath $(INAME)/www):/srv/fibosrv -p 5000:5000 $< >/dev/null
+	@docker run -d --name=$(INAME) -p 5000:5000 $< >/dev/null
 	@sleep 2
 	@curl -sS localhost:5000/compute/-10 > $(NS)/test
 	@curl -sS localhost:5000/compute/0 >> $(NS)/test

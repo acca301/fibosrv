@@ -1,6 +1,5 @@
 # Do not wrap into default "Base" debugger
 CLASS->no_wrap;
-use Poet qw($conf);
 
 # Accept a single REST argument
 route "{uinput:}";
